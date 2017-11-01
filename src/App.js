@@ -79,9 +79,14 @@ const _mapStateToProps = ( _state )=>{
 const _mapDispatchToProps = ( _dispatch )=>{
     return{
         aumentar: ()=>{
-            _dispatch( {
-                type: "AUM"
-            } );
+            _dispatch( ( _dispatch )=>{
+                setTimeout( ()=>{
+                    return _dispatch({
+                        type: "AUM"
+                    } );
+                }, 3000 );
+            } )
+
         },
         disminuir: ()=>{
             _dispatch( {

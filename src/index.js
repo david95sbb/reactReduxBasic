@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 /**
@@ -84,7 +85,7 @@ const _reducer = combineReducers( {
  * Store
  * @type {Store<{count: number}>}
  */
-const _store = createStore( _reducer );
+const _store = createStore( _reducer, applyMiddleware( ReduxThunk ) );
 
 ReactDOM.render(
     // I. Implement provider
